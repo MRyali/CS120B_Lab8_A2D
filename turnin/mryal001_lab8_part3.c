@@ -1,7 +1,7 @@
 /*	Author: Mayur Ryali
  *  Partner(s) Name:
  *	Lab Section: 21
- *	Assignment: Lab #8 Exercise #2
+ *	Assignment: Lab #8 Exercise #3
  *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
@@ -30,12 +30,22 @@ int main(void) {
 	DDRD = 0xFF; PORTD = 0x00;
 
     ADC_init();
-
+    unsigned short max = 816; //max value
+    unsigned char tempB;
     while (1) {
-		unsigned short my_short = ~ADC; //value of ADC stored in my_short
-		unsigned char my_char = (char)my_short;
-		PORTB = my_char; //lower 8 bits
-		PORTD = (char)(x >> 8); //upper 2 bits
+        unsigned short my_short = ADC; //Value of ADC register is now stored in variable x
+        /*
+        if(my_short > max){
+            max = my_short;
+        }*/
+        if (my_short >= max/2){
+            tmpB = 0x00;
+        }
+        else{
+            tmpB = 0x01;
+        }
+
+        PORTB = tempB;
     }
     return 1;
 }

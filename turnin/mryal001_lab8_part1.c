@@ -29,13 +29,13 @@ int main(void) {
 	DDRB = 0xFF; PORTB = 0x00;
 	DDRD = 0xFF; PORTD = 0x00;
 
-    	ADC_init();
+    ADC_init();
 
-    	while (1) {
+    while (1) {
 		unsigned short my_short = ADC; //value of ADC stored in my_short
 		unsigned char my_char = (char)my_short;
 		PORTB = my_char; //lower 8 bits
 		PORTD = (char)(x >> 8); //upper 2 bits
-    	}
+    }
     	return 1;
 }
