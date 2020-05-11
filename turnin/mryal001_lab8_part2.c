@@ -32,7 +32,7 @@ int main(void) {
     	ADC_init();
 
     	while (1) {
-		unsigned short my_short = ADC; //value of ADC stored in my_short
+		unsigned short my_short = ~ADC;
 		unsigned char my_char = (char)my_short;
 		PORTB = my_char; //lower 8 bits
 		PORTD = (char)(x >> 8); //upper 2 bits
