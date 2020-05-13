@@ -35,7 +35,7 @@ int main(void) {
 		unsigned short my_short = ADC; //value of ADC stored in my_short
 		unsigned char my_char = (char)my_short;
 		PORTB = my_char; //lower 8 bits
-		PORTD = (char)(x >> 8); //upper 2 bits
+		PORTD = (char)(my_short >> 8); //upper 2 bits
     }
     	return 1;
 }

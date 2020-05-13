@@ -30,19 +30,19 @@ int main(void) {
 	DDRD = 0xFF; PORTD = 0x00;
 
     ADC_init();
-    unsigned short max = 816; //max value
+    unsigned short max = 543; //max value
     unsigned char tempB;
     while (1) {
         unsigned short my_short = ADC; //Value of ADC register is now stored in variable x
-        /*
+        
         if(my_short > max){
             max = my_short;
-        }*/
+        }
         if (my_short >= max/2){
-            tmpB = 0x00;
+            tempB = 0x01;
         }
         else{
-            tmpB = 0x01;
+            tempB = 0x00;
         }
 
         PORTB = tempB;

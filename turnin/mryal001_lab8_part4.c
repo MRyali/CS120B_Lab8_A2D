@@ -30,35 +30,36 @@ int main(void) {
 	DDRD = 0xFF; PORTD = 0x00;
 
     ADC_init();
-    unsigned short max = 816; //max value
-    unsigned short min; //min value
+    unsigned short max = 543; //max value
+    unsigned short min = 192; //min value
     unsigned char oneInterval = (max - min)/8;
     unsigned char tempB;
     while (1) {
         unsigned short threshold = ADC; //Value of ADC register is now stored in variable
 
         if (threshold <= min + oneInterval ) { //level 0 brightness
-            tempB = 0x00;
-        }
-        else if (threshold <= min + (oneInterval * 2)) { //level 1 brightness
             tempB = 0x01;
         }
-        else if (threshold <= min + (oneInterval * 3)) { //level 2 brightness
-            tempB = 0x02;
-        }
-        else if (threshold <= min + (oneInterval * 4)) { //level 3 brightness
+        else if (threshold <= min + (oneInterval * 2)) { //level 1 brightness
             tempB = 0x03;
         }
+        else if (threshold <= min + (oneInterval * 3)) { //level 2 brightness
+            tempB = 0x7;
+        }
+        else if (threshold <= min + (oneInterval * 4)) { //level 3 brightness
+            tempB = 0x0F;
+        }
         else if (threshold <= min + (oneInterval * 5)) { //level 4 brightness
-            tempB = 0x04;
+            tempB = 0x1F;
         }
         else if (threshold <= min + (oneInterval * 6)) { //level 5 brightness
-            tempB = 0x05;
+            tempB = 0x3F;
         }
         else if (threshold <= min + (oneInterval * 7)) { //level 6 brightness
-        }
+        	tempB = 0x7F;  
+	}
         else { //level 7 brightness
-            tempB = 0x07;
+            tempB = 0xFF;
         }
 
         PORTB = tempB;
