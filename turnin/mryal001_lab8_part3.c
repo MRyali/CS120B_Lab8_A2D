@@ -7,6 +7,9 @@
  *	I acknowledge all content contained herein, excluding template or example
  *	code, is my own original work.
  */
+
+ // Demo: https://drive.google.com/open?id=113v_KmN3iVrPoIFMa7ul7cb-zlBjuW0K
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #ifdef _SIMULATE_
@@ -34,7 +37,7 @@ int main(void) {
     unsigned char tempB;
     while (1) {
         unsigned short my_short = ADC; //Value of ADC register is now stored in variable x
-        
+
         if(my_short > max){
             max = my_short;
         }

@@ -7,6 +7,9 @@
  *	I acknowledge all content contained herein, excluding template or example
  *	code, is my own original work.
  */
+
+ // Demo: https://drive.google.com/open?id=10wMIOrI7FpFTPldnNA517v9w8Jpe-Chm
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #ifdef _SIMULATE_
@@ -56,7 +59,7 @@ int main(void) {
             tempB = 0x3F;
         }
         else if (threshold <= min + (oneInterval * 7)) { //level 6 brightness
-        	tempB = 0x7F;  
+        	tempB = 0x7F;
 	}
         else { //level 7 brightness
             tempB = 0xFF;
